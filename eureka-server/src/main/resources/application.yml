@@ -5,3 +5,9 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+
+spring:
+  security:
+    user:
+      name: acai
+      password: 1234567a

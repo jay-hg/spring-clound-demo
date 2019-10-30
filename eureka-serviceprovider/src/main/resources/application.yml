@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: eureka-serviceprovider
+server:
+  port: 8762
+eureka:
+  client:
+    service-url:
+      defaultZone: http://acai:1234567a@localhost:8761/eureka/

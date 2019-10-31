@@ -1,3 +1,5 @@
 rootProject.name = 'spring-clound-demo'
 include 'eureka-server'
 include 'eureka-serviceprovider'
+include 'eureka-serviceconsumer'
+

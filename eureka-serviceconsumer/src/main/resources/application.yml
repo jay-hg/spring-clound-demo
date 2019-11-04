@@ -7,3 +7,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://acai:1234567a@172.18.2.40:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true

@@ -34,5 +34,6 @@ subprojects {
         // 单元测试
         testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
         testCompile("junit:junit:4.12")
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     }
 }

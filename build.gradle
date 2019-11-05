@@ -1,39 +1,41 @@
 buildscript {
-    ext {
-        springBootVersion = '2.2.0.RELEASE'
-    }
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.2.0.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
     }
 }
-// 所有模块/项目的通用配置
-allprojects {
-    group 'com.acai'
-    version '1.0-SNAPSHOT'
-    apply plugin: 'idea'
+
+ext {
+    set('springCloudVersion', "Greenwich.SR3")
 }
-// 子模块/项目的统一配置
+
 subprojects {
-    apply plugin: 'java'
-    // 指定JDK版本
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-    // 指定编码格式
-    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+    group = "com.acai"
+    version = "1.0-SNAPSHOT"
+
+    apply plugin: "java"
+    apply plugin: "org.springframework.boot"
+    apply plugin: "io.spring.dependency-management"
+
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
-    ext {//依赖版本
-        springBootVersion = "2.2.0.RELEASE"
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
     }
+
     dependencies {
-        compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+        compile("org.springframework.boot:spring-boot-starter-web")
         // 单元测试
-        testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
-        testCompile("junit:junit:4.12")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
     }
 }

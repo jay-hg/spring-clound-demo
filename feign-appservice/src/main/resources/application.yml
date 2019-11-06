@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: feign-appservice
+server:
+  port: 8764
+eureka:
+  client:
+    service-url:
+      defaultZone: http://acai:1234567a@172.18.2.40:8761/eureka/

@@ -34,7 +34,6 @@ subprojects {
         compile("org.springframework.boot:spring-boot-starter-web")
         // 单元测试
         testCompile("org.springframework.boot:spring-boot-starter-test")
-        compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
     }

@@ -2,4 +2,7 @@ rootProject.name = 'spring-clound-demo'
 include 'eureka-server'
 include 'eureka-serviceprovider'
 include 'eureka-serviceconsumer'
+include 'feign-serviceapi'
+include 'feign-appservice'
+include 'feign-appclient'
 
